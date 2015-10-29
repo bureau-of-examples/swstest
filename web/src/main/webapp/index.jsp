@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
@@ -12,6 +13,8 @@
   <body>
   <div class="container">
       <h1>Powered by Spring + Hibernate.</h1>
+      <c:url var="testUrl" value="/console/test" />
+      <a href="${testUrl}">Test Page</a>
   </div>
 
 

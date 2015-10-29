@@ -1,7 +1,7 @@
-package wsexample.wsendpoint.composer;
+package swstest.wsendpoint.composer;
 
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
-import wsexample.wsendpoint.AbstractEndpoint;
+import swstest.wsendpoint.AbstractEndpoint;
 
 /**
  * Created with IntelliJ IDEA.

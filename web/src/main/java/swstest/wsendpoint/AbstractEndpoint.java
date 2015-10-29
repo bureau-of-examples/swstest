@@ -1,4 +1,4 @@
-package wsexample.wsendpoint;
+package swstest.wsendpoint;
 
 import org.dozer.DozerBeanMapper;
 import org.springframework.beans.factory.annotation.Autowired;

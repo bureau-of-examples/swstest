@@ -11,7 +11,7 @@
     <mvc:default-servlet-handler />
 
     <mvc:annotation-driven />
-    <context:component-scan base-package="wsexample.mvccontroller"/>
+    <context:component-scan base-package="swstest.mvccontroller"/>
 
     <!-- JSTL resolver -->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">

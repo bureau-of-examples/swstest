@@ -10,6 +10,6 @@
        http://www.springframework.org/schema/web-services http://www.springframework.org/schema/web-services/web-services.xsd">
 
     <sws:annotation-driven/>
-    <context:component-scan base-package="wsexample.wsendpoint"/>
+    <context:component-scan base-package="swstest.wsendpoint"/>
 
 </beans>

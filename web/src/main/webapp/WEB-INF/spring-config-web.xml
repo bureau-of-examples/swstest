@@ -13,7 +13,7 @@
 
     <bean id="validatorFactory" class="javax.validation.Validation" factory-method="buildDefaultValidatorFactory" />
 
-    <context:component-scan base-package="wsexample" >
+    <context:component-scan base-package="swstest" >
         <context:exclude-filter type="annotation" expression="org.springframework.ws.server.endpoint.annotation.Endpoint" />
         <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
     </context:component-scan>

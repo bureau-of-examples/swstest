@@ -18,6 +18,10 @@
 <%= new Date() %><br>
 ${message}
 
+<hr>
+
+<p>There are: ${categories.size()} categorie(s).</p>
+
 <script src="<%= getServletConfig().getServletContext().getContextPath() + "/js/jquery.js" %>"></script>
 </body>
 </html>
