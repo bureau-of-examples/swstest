@@ -1,0 +1,58 @@
+<wsdl:definitions xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/"
+                  xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+                  xmlns:schema="http://mycompany.com/hr/schemas"
+                  xmlns:tns="http://www.gbst.com/composer"
+                  targetNamespace="http://www.gbst.com/composer">
+    <wsdl:types>
+        <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+            <xsd:import namespace="http://www.gbst.com/composer"
+                        schemaLocation="../xsd/createuserlocationrequest.xsd"/>
+            <xsd:import namespace="http://www.gbst.com/composer"
+                        schemaLocation="../xsd/createuserlocationresponse.xsd"/>
+            <xsd:import namespace="http://www.gbst.com/composer"
+                        schemaLocation="../xsd/wsexamplefault.xsd"/>
+        </xsd:schema>
+    </wsdl:types>
+
+    <wsdl:message name="CreateUserLocationRequest">
+        <wsdl:part element="schema:createUserLocation" name="CreateUserLocationRequest"/>
+    </wsdl:message>
+
+    <wsdl:message name="CreateUserLocationResponse">
+        <wsdl:part element="schema:createUserLocationResponse" name="CreateUserLocationResponse"/>
+    </wsdl:message>
+
+    <wsdl:message name="CreateUserLocationFault">
+        <wsdl:part element="schema:wsexampleFault" name="CreateUserLocationFault"/>
+    </wsdl:message>
+
+    <wsdl:portType name="CreateUserLocation">
+        <wsdl:operation name="Create">
+            <wsdl:input message="tns:CreateUserLocationRequest" name="CreateUserLocationRequest"  />
+            <wsdl:output message="tns:CreateUserLocationResponse" name="CreateUserLocationResponse" />
+            <wsdl:fault  message="tns:CreateUserLocationFault" name="CreateUserLocationFault" />
+        </wsdl:operation>
+    </wsdl:portType>
+
+    <wsdl:binding name="CreateUserLocationBinding" type="tns:CreateUserLocation">
+        <soap:binding style="document"
+                      transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="Create">
+            <wsdl:input name="CreateUserLocationRequest">
+                <soap:body use="literal"/>
+            </wsdl:input>
+            <wsdl:output name="CreateUserLocationResponse" >
+                <soap:body use="literal"/>
+            </wsdl:output>
+            <wsdl:fault name="CreateUserLocationFault">
+                <soap:fault name="CreateUserLocationFault" use="literal" />
+            </wsdl:fault>
+        </wsdl:operation>
+    </wsdl:binding>
+
+    <wsdl:service name="UserLocationService">
+        <wsdl:port binding="tns:CreateUserLocationBinding" name="CreateUserLocationPort">
+            <soap:address location="http://localhost:8080/wsexample/services"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

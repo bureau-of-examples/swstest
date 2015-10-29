@@ -1,0 +1,14 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           elementFormDefault="qualified"
+           targetNamespace="http://www.gbst.com/composer">
+
+    <xs:element name="createUserLocation">
+        <xs:complexType>
+            <xs:all>
+                <xs:element name="id" type="xs:int"/>
+                <xs:element name="name" type="xs:string"/>
+            </xs:all>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>

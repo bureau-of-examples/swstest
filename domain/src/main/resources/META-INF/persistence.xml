@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence" version="2.0">
+
+    <persistence-unit name="simpleshop" transaction-type="RESOURCE_LOCAL">
+        <class>swstest.domain.simpleshop.model.Category</class>
+        <class>swstest.domain.simpleshop.model.Contact</class>
+        <class>swstest.domain.simpleshop.model.ContactNumber</class>
+        <class>swstest.domain.simpleshop.model.ContactNumberPK</class>
+        <class>swstest.domain.simpleshop.model.Country</class>
+        <class>swstest.domain.simpleshop.model.Customer</class>
+        <class>swstest.domain.simpleshop.model.Employee</class>
+        <class>swstest.domain.simpleshop.model.ExchangeRate</class>
+        <class>swstest.domain.simpleshop.model.Order</class>
+        <class>swstest.domain.simpleshop.model.OrderItem</class>
+        <class>swstest.domain.simpleshop.model.OrderItemPK</class>
+        <class>swstest.domain.simpleshop.model.Product</class>
+        <class>swstest.domain.simpleshop.model.ProductImage</class>
+        <class>swstest.domain.simpleshop.model.ProductSupplier</class>
+        <class>swstest.domain.simpleshop.model.ProductSupplierPK</class>
+        <class>swstest.domain.simpleshop.model.Shipper</class>
+        <class>swstest.domain.simpleshop.model.Suburb</class>
+        <class>swstest.domain.simpleshop.model.Supplier</class>
+
+        <exclude-unlisted-classes>true</exclude-unlisted-classes>
+    </persistence-unit>
+</persistence>

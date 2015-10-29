@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:sim="https://github.com/zhy2002/swstest/simpleshop" targetNamespace="https://github.com/zhy2002/swstest/simpleshop" version="1.0">
+
+  <xs:complexType name="category">
+    <xs:annotation>
+      <xs:documentation><![CDATA[The persistent class for the CATEGORIES database table.]]></xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="categories" nillable="true" type="sim:category"/>
+      <xs:element minOccurs="0" name="category" type="sim:category"/>
+      <xs:element minOccurs="0" name="description" type="xs:string"/>
+      <xs:element name="id" type="xs:int"/>
+      <xs:element minOccurs="0" name="imagePath" type="xs:string"/>
+      <xs:element name="menuItem" type="xs:boolean"/>
+      <xs:element minOccurs="0" name="name" type="xs:string"/>
+      <xs:element minOccurs="0" name="prefix" type="xs:string"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="products" nillable="true" type="sim:product"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="product">
+    <xs:annotation>
+      <xs:documentation><![CDATA[The persistent class for the PRODUCTS database table.]]></xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="categories" nillable="true" type="sim:category"/>
+      <xs:element name="id" type="xs:int"/>
+      <xs:element minOccurs="0" name="name" type="xs:string"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="orderItems" nillable="true" type="sim:orderItem"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="productImages" nillable="true" type="xs:string"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="productSuppliers" nillable="true" type="sim:productSupplier"/>
+      <xs:element minOccurs="0" name="quantityperunit" type="xs:string"/>
+      <xs:element name="stock" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="orderItem">
+    <xs:annotation>
+      <xs:documentation><![CDATA[The persistent class for the ORDER_ITEMS database table.]]></xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="id" type="sim:orderItemPK"/>
+      <xs:element minOccurs="0" name="order" type="sim:order"/>
+      <xs:element minOccurs="0" name="product" type="sim:product"/>
+      <xs:element name="quantity" type="xs:int"/>
+      <xs:element minOccurs="0" name="sellPrice" type="xs:decimal"/>
+      <xs:element minOccurs="0" name="supplier" type="sim:supplier"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="orderItemPK">
+    <xs:annotation>
+      <xs:documentation><![CDATA[The primary key class for the ORDER_ITEMS database table.]]></xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="itemIndex" type="xs:int"/>
+      <xs:element name="orderId" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="order">
+    <xs:annotation>
+      <xs:documentation><![CDATA[The persistent class for the ORDERS database table.]]></xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="addressLine1" type="xs:string"/>
+      <xs:element minOccurs="0" name="addressLine2" type="xs:string"/>
+      <xs:element minOccurs="0" name="country" type="sim:country"/>
+      <xs:element minOccurs="0" name="customer" type="sim:customer"/>
+      <xs:element minOccurs="0" name="employee" type="sim:employee"/>
+      <xs:element minOccurs="0" name="freight" type="xs:decimal"/>
+      <xs:element name="id" type="xs:int"/>
+      <xs:element name="numberOfParcels" type="xs:int"/>
+      <xs:element minOccurs="0" name="orderDate" type="xs:base64Binary"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="orderItems" nillable="true" type="sim:orderItem"/>
+      <xs:element minOccurs="0" name="requiredDate" type="xs:base64Binary"/>
+      <xs:element minOccurs="0" name="shipName" type="xs:string"/>
+      <xs:element minOccurs="0" name="shippedDate" type="xs:base64Binary"/>
+      <xs:element minOccurs="0" name="shipper" type="sim:shipper"/>
+      <xs:element minOccurs="0" name="suburb" type="sim:suburb"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="country">
+    <xs:annotation>
+      <xs:documentation><![CDATA[The persistent class for the COUNTRIES database table.]]></xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="countryCode" type="xs:string"/>
+      <xs:element minOccurs="0" name="currencySymbol" type="xs:string"/>
+      <xs:element minOccurs="0" name="name" type="xs:string"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="orders" nillable="true" type="sim:order"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="suburbs" nillable="true" type="sim:suburb"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="suburb">
+    <xs:annotation>
+      <xs:documentation><![CDATA[The persistent class for the SUBURBS database table.]]></xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="city" type="xs:string"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="contacts" nillable="true" type="sim:contact"/>
+      <xs:element minOccurs="0" name="country" type="sim:country"/>
+      <xs:element name="id" type="xs:int"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="orders" nillable="true" type="sim:order"/>
+      <xs:element minOccurs="0" name="postcode" type="xs:string"/>
+      <xs:element minOccurs="0" name="state" type="xs:string"/>
+      <xs:element minOccurs="0" name="suburb" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="contact">
+    <xs:annotation>
+      <xs:documentation><![CDATA[The persistent class for the CONTACTS database table.]]></xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="addressLine1" type="xs:string"/>
+      <xs:element minOccurs="0" name="addressLine2" type="xs:string"/>
+      <xs:element minOccurs="0" name="contactName" type="xs:string"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="contactNumbers" nillable="true" type="sim:contactNumber"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="customers" nillable="true" type="sim:customer"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="employees" nillable="true" type="sim:employee"/>
+      <xs:element name="id" type="xs:int"/>
+      <xs:element minOccurs="0" name="name" type="xs:string"/>
+      <xs:element minOccurs="0" name="note" type="xs:string"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="shippers" nillable="true" type="sim:shipper"/>
+      <xs:element minOccurs="0" name="suburb" type="sim:suburb"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="suppliers" nillable="true" type="sim:supplier"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="contactNumber">
+    <xs:annotation>
+      <xs:documentation><![CDATA[The persistent class for the CONTACT_NUMBERS database table.]]></xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="contact" type="sim:contact"/>
+      <xs:element minOccurs="0" name="contactNumber" type="xs:string"/>
+      <xs:element minOccurs="0" name="id" type="sim:contactNumberPK"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="contactNumberPK">
+    <xs:annotation>
+      <xs:documentation><![CDATA[The primary key class for the CONTACT_NUMBERS database table.]]></xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="contactId" type="xs:int"/>
+      <xs:element minOccurs="0" name="contactType" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="customer">
+    <xs:annotation>
+      <xs:documentation><![CDATA[The persistent class for the CUSTOMERS database table.]]></xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="contact" type="sim:contact"/>
+      <xs:element name="id" type="xs:int"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="orders" nillable="true" type="sim:order"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="employee">
+    <xs:annotation>
+      <xs:documentation><![CDATA[The persistent class for the EMPLOYEES database table.]]></xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="contact" type="sim:contact"/>
+      <xs:element name="employmentType" type="xs:int"/>
+      <xs:element minOccurs="0" name="hireDate" type="xs:base64Binary"/>
+      <xs:element name="id" type="xs:int"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="orders" nillable="true" type="sim:order"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="shipper">
+    <xs:annotation>
+      <xs:documentation><![CDATA[The persistent class for the SHIPPERS database table.]]></xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="contact" type="sim:contact"/>
+      <xs:element name="id" type="xs:int"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="orders" nillable="true" type="sim:order"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="supplier">
+    <xs:annotation>
+      <xs:documentation><![CDATA[The persistent class for the SUPPLIERS database table.]]></xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="contact" type="sim:contact"/>
+      <xs:element name="id" type="xs:int"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="orderItems" nillable="true" type="sim:orderItem"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="productSuppliers" nillable="true" type="sim:productSupplier"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="productSupplier">
+    <xs:annotation>
+      <xs:documentation><![CDATA[The persistent class for the PRODUCT_SUPPLIERS database table.]]></xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="id" type="sim:productSupplierPK"/>
+      <xs:element minOccurs="0" name="note" type="xs:string"/>
+      <xs:element minOccurs="0" name="outOfStockDate" type="xs:base64Binary"/>
+      <xs:element minOccurs="0" name="product" type="sim:product"/>
+      <xs:element minOccurs="0" name="sellPrice" type="xs:decimal"/>
+      <xs:element minOccurs="0" name="supplier" type="sim:supplier"/>
+      <xs:element minOccurs="0" name="unitPriceDate" type="xs:base64Binary"/>
+      <xs:element minOccurs="0" name="url" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="productSupplierPK">
+    <xs:annotation>
+      <xs:documentation><![CDATA[The primary key class for the PRODUCT_SUPPLIERS database table.]]></xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="productId" type="xs:int"/>
+      <xs:element name="supplierId" type="xs:int"/>
+    </xs:sequence>
+  </xs:complexType>
+
+  <xs:complexType name="exchangeRate">
+    <xs:annotation>
+      <xs:documentation><![CDATA[The persistent class for the EXCHANGE_RATES database table.]]></xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element minOccurs="0" name="fromSymbol" type="xs:string"/>
+      <xs:element name="id" type="xs:int"/>
+      <xs:element minOccurs="0" name="rate" type="xs:decimal"/>
+      <xs:element minOccurs="0" name="recordDate" type="xs:dateTime"/>
+      <xs:element minOccurs="0" name="toSymbol" type="xs:string"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>
