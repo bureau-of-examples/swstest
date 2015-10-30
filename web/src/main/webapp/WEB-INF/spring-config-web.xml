@@ -7,6 +7,8 @@
        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
     <!--global spring context shared by all servlets-->
 
+
+
     <import resource="classpath:spring-config-service.xml" />
 
     <bean class="org.dozer.DozerBeanMapper" />
