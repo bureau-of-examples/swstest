@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<persistence xmlns="http://java.sun.com/xml/ns/persistence" version="2.0">
+<persistence xmlns="http://xmlns.jcp.org/xml/ns/persistence" version="2.1">
 
     <persistence-unit name="simpleshop" transaction-type="RESOURCE_LOCAL">
         <class>swstest.domain.simpleshop.model.Category</class>
@@ -14,7 +14,6 @@
         <class>swstest.domain.simpleshop.model.OrderItem</class>
         <class>swstest.domain.simpleshop.model.OrderItemPK</class>
         <class>swstest.domain.simpleshop.model.Product</class>
-        <class>swstest.domain.simpleshop.model.ProductImage</class>
         <class>swstest.domain.simpleshop.model.ProductSupplier</class>
         <class>swstest.domain.simpleshop.model.ProductSupplierPK</class>
         <class>swstest.domain.simpleshop.model.Shipper</class>
