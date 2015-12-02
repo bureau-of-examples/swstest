@@ -10,6 +10,8 @@
        http://www.springframework.org/schema/web-services http://www.springframework.org/schema/web-services/web-services.xsd">
 
     <sws:annotation-driven/>
-    <context:component-scan base-package="swstest.wsendpoint"/>
-
+    <context:component-scan base-package="swstest.wsendpoint,swstest.wsinterceptor"/>
+    <sws:interceptors>
+        <ref bean="loggingInterceptor" />
+    </sws:interceptors>
 </beans>

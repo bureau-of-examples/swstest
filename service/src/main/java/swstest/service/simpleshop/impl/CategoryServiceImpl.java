@@ -19,4 +19,9 @@ public class CategoryServiceImpl implements CategoryService {
     public List<Category> findAll(){
         return categoryJpaRepository.findAll();
     }
+
+    @Transactional
+    public Category Add(Category category){
+        return categoryJpaRepository.save(category);
+    }
 }

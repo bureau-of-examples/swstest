@@ -20,7 +20,7 @@
     </bean>
 
     <ctx:annotation-config/>
-    <ctx:component-scan base-package="swstest"/>
+    <ctx:component-scan base-package="swstest.data"/>
     <!--
         This will register org.springframework.orm.jpa.support.PersistenceAnnotationBeanPostProcessor
         which enables @PersistenceContext

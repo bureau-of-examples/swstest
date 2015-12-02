@@ -7,8 +7,6 @@
        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
     <!--global spring context shared by all servlets-->
 
-
-
     <import resource="classpath:spring-config-service.xml" />
 
     <bean class="org.dozer.DozerBeanMapper" />
@@ -18,6 +16,7 @@
     <context:component-scan base-package="swstest" >
         <context:exclude-filter type="annotation" expression="org.springframework.ws.server.endpoint.annotation.Endpoint" />
         <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+        <context:exclude-filter type="regex" expression=".+Interceptor" />
     </context:component-scan>
     <context:annotation-config />
 

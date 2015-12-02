@@ -10,7 +10,9 @@
         <servlet-class>org.springframework.ws.transport.http.MessageDispatcherServlet</servlet-class>
         <init-param>
             <param-name>contextConfigLocation</param-name>
-            <param-value>/WEB-INF/ws_dispatcher-servlet.xml</param-value>
+            <param-value>
+                /WEB-INF/ws_dispatcher-servlet.xml
+            </param-value>
         </init-param>
         <load-on-startup>1</load-on-startup>
     </servlet>
@@ -26,7 +28,9 @@
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
         <init-param>
             <param-name>contextConfigLocation</param-name>
-            <param-value>/WEB-INF/mvc_dispatcher-servlet.xml</param-value>
+            <param-value>
+                /WEB-INF/mvc_dispatcher-servlet.xml
+            </param-value>
         </init-param>
         <load-on-startup>1</load-on-startup>
         <async-supported>true</async-supported>
@@ -49,7 +53,7 @@
     </filter-mapping>
     -->
 
-    <!-- Creates the Spring Container shared by all Servlets and Filters -->
+    <!-- Creates the Spring Container shared by all Servlets and Filters-->
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
